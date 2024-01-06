@@ -15,6 +15,10 @@ st.write("This will be a basic analysis and visualisation of the faithful data s
 st.write("This data set contains 2 columns, one for the duration of a volcano's last eruption, and another for the " +  
          "length of time between eruptions. A plot of these variables can be found below.")
 
-st.scatter_chart(faithful_data, x = "eruptions", y = "waiting")
+erputions = faithful_data["eruptions"]
+waiting = faithful_data["waiting"]
 
+fig, ax = plt.subplots()
+ax.scatter(erputions, waiting)
 
+st.pyplot(fig)
