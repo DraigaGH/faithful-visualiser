@@ -18,7 +18,7 @@ st.write("This data set contains 2 columns, one for the duration of a volcano's 
 erputions = faithful_data["eruptions"]
 waiting = faithful_data["waiting"]
 
-fig, ax = plt.subplots()
+initial_plot, ax = plt.subplots()
 ax.scatter(erputions, waiting)
 
-st.pyplot(fig)
+st.pyplot(initial_plot)
