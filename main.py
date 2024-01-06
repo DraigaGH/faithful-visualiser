@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
+import sklearn as sk
 
 # importing data and performing basic analysis
 faithful_data = pd.read_csv("faithful.csv")
