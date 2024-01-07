@@ -15,10 +15,24 @@ st.write("This will be a basic analysis and visualisation of the faithful data s
 st.write("This data set contains 2 columns, one for the duration of a volcano's last eruption, and another for the " +  
          "length of time between eruptions. A plot of these variables can be found below.")
 
-erputions = faithful_data["eruptions"]
+eruptions = faithful_data["eruptions"]
 waiting = faithful_data["waiting"]
 
-initial_plot, ax = plt.subplots()
-ax.scatter(erputions, waiting)
+initial_plot, x1 = plt.subplots()
+x1.scatter(eruptions, waiting)
 
 st.pyplot(initial_plot)
+
+# adding second interactive plot
+st.write("The relation seems to be linear. Let's model it using linear regression.")
+
+placeholder = st.empty()
+
+# we create a container so that the slider can be shown below the graph
+main_plot_container = st.container()
+lambda_slider = st.slider("lambda slider")
+main_plot, x2 = plt.subplots()
+
+x2.scatter(eruptions, waiting)
+x2.scatter([1], [lambda_slider])
+main_plot_container.pyplot(main_plot)
