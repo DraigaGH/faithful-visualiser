@@ -1,8 +1,8 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-import sklearn as sk
 import matplotlib.pyplot as plt
+from sklearn import linear_model
 
 # importing data and performing basic analysis
 faithful_data = pd.read_csv("faithful.csv")
@@ -30,9 +30,13 @@ placeholder = st.empty()
 
 # we create a container so that the slider can be shown below the graph
 main_plot_container = st.container()
-lambda_slider = st.slider("lambda slider")
+alpha_slider = st.slider("α", 0.0, 10.0, 1.0)
 main_plot, x2 = plt.subplots()
 
+model = linear_model.Ridge(alpha = alpha_slider)
+
+print(model)
+
 x2.scatter(eruptions, waiting)
-x2.scatter([1], [lambda_slider])
+x2.scatter([1], [alpha_slider])
 main_plot_container.pyplot(main_plot)
